@@ -17,7 +17,10 @@ done
 /usr/local/bin/tailscaled --tun=userspace-networking &
 until /usr/local/bin/tailscale up \
 	--authkey=${AUTH_KEY} \
-	--advertise-routes="${ADVERTISE_ROUTES}"
+	--advertise-routes="${ADVERTISE_ROUTES}" \
+	--login-server="${LOGIN_SERVER}" \
+	--accept-routes=true \
+	--accept-dns=false
 do
     sleep 0.1
 done
